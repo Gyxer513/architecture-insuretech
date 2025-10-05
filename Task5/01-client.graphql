@@ -1,0 +1,24 @@
+query ClientById(
+    $id: ID!,
+    $docType: DocumentType,
+    $relation: RelationType
+) {
+    client(id: $id) {
+        id
+        name
+        age
+        documents(type: $docType) {
+            id
+            type
+            number
+            issueDate
+            expiryDate
+        }
+        relatives(relation: $relation) {
+            id
+            relationType
+            name
+            age
+        }
+    }
+}
