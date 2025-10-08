@@ -1,0 +1,12 @@
+query ClientDocuments(
+    $clientId: ID!,
+    $type: DocumentType
+) {
+    clientDocuments(clientId: $clientId, type: $type) {
+        id
+        type
+        number
+        issueDate
+        expiryDate
+    }
+}

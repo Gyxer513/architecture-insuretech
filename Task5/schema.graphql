@@ -1,0 +1,39 @@
+scalar Date
+
+enum DocumentType {
+  PASSPORT
+  DRIVER_LICENSE
+  VEHICLE_REGISTRATION
+  OTHER
+}
+
+enum RelationType {
+  SPOUSE
+  CHILD
+  PARENT
+  SIBLING
+  OTHER
+}
+
+type Document {
+  id: ID!
+  type: DocumentType
+  number: String
+  issueDate: Date
+  expiryDate: Date
+}
+
+type Relative {
+  id: ID!
+  relationType: RelationType
+  name: String
+  age: Int
+}
+
+type Client {
+  id: ID!
+  name: String
+  age: Int
+  documents(type: DocumentType): [Document!]!
+  relatives(relation: RelationType): [Relative!]!
+}

@@ -1,0 +1,11 @@
+query ClientRelatives(
+    $clientId: ID!,
+    $relation: RelationType
+) {
+    clientRelatives(clientId: $clientId, relation: $relation) {
+        id
+        relationType
+        name
+        age
+    }
+}
